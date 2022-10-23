@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OAuth;
+use App\Http\Controllers\Individual;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,36 +26,56 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', function () {
     return view('welcome');
+})->name('welcome');
+
+Route::post('/logout', [OAuth\RegisterController::class, 'logout']);
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [OAuth\RegisterController::class, 'login']);
+    Route::post('/login', [OAuth\RegisterController::class, 'loginUser']);
+    Route::get('/register', [OAuth\RegisterController::class, 'register']);
+    Route::post('/register', [OAuth\RegisterController::class, 'create']);
+    Route::get('/register/establishment', [OAuth\RegisterController::class, 'registerEstablishment']);
+    Route::post('/register/establishment', [OAuth\RegisterController::class, 'createEstablishment']);
 });
-  
-Auth::routes();
+
+Route::get('/login', [OAuth\RegisterController::class, 'login']);
+
+Route::get('/dashboard', [Individual\HomeController::class, 'index']);
+
+// register
+Route::middleware([])->group(function () {
+
+});
+
+// Auth::routes();
   
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:person'])->group(function () {
+// Route::middleware(['auth', 'user-access:person'])->group(function () {
   
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
-  
-/*------------------------------------------
---------------------------------------------
-All Admin Routes List
---------------------------------------------
---------------------------------------------*/
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
-    Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
-});
+//     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// });
   
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:manager'])->group(function () {
+// Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
-    Route::get('/establishment/home', [App\Http\Controllers\HomeController::class, 'establishmentHome'])->name('establishment.home');
-});
+//     Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
+// });
+  
+/*------------------------------------------
+--------------------------------------------
+All Admin Routes List
+--------------------------------------------
+--------------------------------------------*/
+// Route::middleware(['auth', 'user-access:manager'])->group(function () {
+  
+//     Route::get('/establishment/home', [App\Http\Controllers\HomeController::class, 'establishmentHome'])->name('establishment.home');
+// });
