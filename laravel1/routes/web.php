@@ -48,6 +48,11 @@ Route::middleware([])->group(function () {
 
 });
 
+Route::middleware(['verifyIndividual'])->group(function () {
+    Route::get('/verify', [OAuth\RegisterController::class, 'verifyView']);
+    Route::post('/verify', [OAuth\RegisterController::class, 'verify']);
+});
+
 // Auth::routes();
   
 /*------------------------------------------

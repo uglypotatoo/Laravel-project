@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
 
         
         'guest' => \App\Http\Middleware\GuestRedirect::class,
+        'verifyIndividual' => \App\Http\Middleware\VerifyRedirect::class,
     ];
 }

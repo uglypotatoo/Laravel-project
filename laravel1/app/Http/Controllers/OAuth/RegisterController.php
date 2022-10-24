@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 Use Illuminate\Support\Facades\Auth;
+use Twilio\Rest\Client;
 
 class RegisterController extends Controller
 {
@@ -22,7 +23,7 @@ class RegisterController extends Controller
             'lastname' => ['required'],
             'address' => ['required'],
             'username' => ['required','unique:users,username'],
-            'phoneNumber' => ['required','unique:users,phoneNumber'],
+            'phoneNumber' => ['required','numeric','unique:users,phoneNumber'],
             'password' => ['required'],
             'password_confirm' => ['required']
        ]);
@@ -46,6 +47,8 @@ class RegisterController extends Controller
             ], 422);
        }
 
+       /****************************** TWILIO AUTHENTICATION ******************************/
+
        User::create([
         'name' => $request->name,
         'lastname' => $request->name,
@@ -57,8 +60,45 @@ class RegisterController extends Controller
 
         auth()->attempt(array('username' => $request->username, 'password' => $request->password));
 
-        return ['success' => 'success'];
+        $token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new Client($twilio_sid, $token);
+        $twilio->verify->v2->services($twilio_verify_sid)
+           ->verifications
+           ->create($request['phoneNumber'], "sms");
+
+        return ['status' => 'success'];
+        
     }
+
+    /****************************** TWILIO VERIFY METHOD ******************************/
+    protected function verify(Request $request)
+    {
+        $data = $request->validate([
+            'verification_code' => ['required', 'numeric'],
+            'phoneNumber' => ['required', 'string'],
+        ]);
+        /* Get credentials from .env */
+        $token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new Client($twilio_sid, $token);
+        $verification = $twilio->verify->v2->services($twilio_verify_sid)
+            ->verificationChecks
+            ->create($data['verification_code'], array('to' => $data['phoneNumber']));
+        if ($verification->valid) {
+            $user = User::where('id', Auth::user()->id)->update(['status' => 1]);
+            return ['status' => 'success'];
+        }
+        return ['status' => 'fail'];
+        //return back()->with(['phoneNumber' => $data['phoneNumber'], 'error' => 'Invalid verification code entered!']);
+    }
+
+    public function verifyView(Request $request) {
+        return view ('oauth.verify');
+    }
+
 
     public function registerEstablishment(Request $request) {
         return view('oauth.registerEstablishment');

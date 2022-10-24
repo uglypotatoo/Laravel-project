@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phoneNumber')->nullable();
+            $table->boolean('number_verified')->default(false);
             $table->string('password');
             $table->tinyInteger('role')->default(0);
             /* Users: 0=>User, 1=>Admin, 2=>Manager */
