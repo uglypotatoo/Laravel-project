@@ -21,7 +21,14 @@ class User extends Authenticatable
         'firstname',
         'lastname',
         'username',
+<<<<<<< HEAD:contact-tracing2/app/Models/User.php
         'phone_number',
+=======
+        'address',
+        'email',
+        'phoneNumber',
+        'number_verified',
+>>>>>>> refs/remotes/origin/main:laravel1/app/Models/User.php
         'password',
         'isVerified',
     ];

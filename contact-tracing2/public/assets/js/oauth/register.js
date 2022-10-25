@@ -9,7 +9,7 @@ $(document).ready(function(){
             data: $('form#myForm').serialize(),
             success: function(data) {
                 $('#submitButton').removeAttr('disabled');
-                window.location = '/dashboard';
+                window.location = '/verify';
             },
             error: function(data) {
                 let errors = data.responseJSON.errors;

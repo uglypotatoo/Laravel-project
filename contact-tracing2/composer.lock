@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD:contact-tracing2/composer.lock
     "content-hash": "cd0898d1c156a7faf0e59031ddf15223",
+=======
+    "content-hash": "1c15f095fa9ed0918e2e8d2724a348cc",
+>>>>>>> refs/remotes/origin/main:laravel1/composer.lock
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
