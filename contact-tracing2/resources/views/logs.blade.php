@@ -1,0 +1,153 @@
+@extends('layouts.master')
+
+@section('title')
+    KONEK | Report
+@endsection
+
+@section('content')
+
+
+        <!--------------------------- GENERAL REPORT --------------------------->
+        <div class="report_layout">
+            <h1>Report</h1>
+            <div class="report_table">
+                <div class="general_report">
+                    <div class="chart" style="position: relative; height: 68vh; width 80vw">
+                        <h2>Logs</h2>
+
+
+                        <div class="active-cyan-4 mb-4">
+                            <input style="font-size: 1rem; height: 1.8rem; width: 30rem; margin-bottom: 1rem;" class="form-control" type="text" placeholder="Search" aria-label="Search">
+                          </div>
+                        
+                          <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                            <input placeholder="Select date" type="text" id="example" class="form-control">
+                            <label for="example">Try me...</label>
+                            <i class="fas fa-calendar input-prefix"></i>
+                          </div>
+
+
+                          <table class="table table-hover" style="width: 130rem; height: 10rem;">
+                            <thead>
+                              <tr class="head">
+                                <th scope="col">#</th>
+                                <th scope="col">Establishment</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">In</th>
+                                <th scope="col">Out</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Contact No.</th>
+                                <th scope="col">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody class="body">
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Establishment 1</td>
+                                <td>March 16, 2022</td>
+                                <td>16:35:03</td>
+                                <td>17:15:08</td>
+                                <td>Peter</td>
+                                <td>Cruz</td>
+                                <td>Tarlac City</td>
+                                <td>+639157584262</td>
+                                <td>1</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Establishment 2</td>
+                                <td>March 16, 2022</td>
+                                <td>15:32:03</td>
+                                <td>18:12:18</td>
+                                <td>Shaina</td>
+                                <td>Lopez</td>
+                                <td>Tarlac City</td>
+                                <td>+639152648359</td>
+                                <td>0</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Establishment 2</td>
+                                <td>March 16, 2022</td>
+                                <td>15:32:03</td>
+                                <td>18:12:18</td>
+                                <td>Maiko</td>
+                                <td>Nunag</td>
+                                <td>Tarlac City</td>
+                                <td>+6391524698517</td>
+                                <td>0</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td>Establishment 1</td>
+                                <td>March 16, 2022</td>
+                                <td>15:20:35</td>
+                                <td>16:02:54</td>
+                                <td>Pedro</td>
+                                <td>Gomez</td>
+                                <td>Tarlac City</td>
+                                <td>+639153618459</td>
+                                <td>1</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">5</th>
+                                <td>Establishment 3</td>
+                                <td>March 16, 2022</td>
+                                <td>14:18:03</td>
+                                <td>17:12:18</td>
+                                <td>Michelle</td>
+                                <td>De Guzman</td>
+                                <td>Tarlac City</td>
+                                <td>+639151248637</td>
+                                <td>0</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">6</th>
+                                <td>Establishment 1</td>
+                                <td>March 16, 2022</td>
+                                <td>13:24:12</td>
+                                <td>14:26:41</td>
+                                <td>Isko</td>
+                                <td>Ramos</td>
+                                <td>Tarlac City</td>
+                                <td>+639150146842</td>
+                                <td>1</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">7</th>
+                                <td>Establishment 5</td>
+                                <td>March 16, 2022</td>
+                                <td>13:18:03</td>
+                                <td>17:12:18</td>
+                                <td>Kyline</td>
+                                <td>Alcantara</td>
+                                <td>Tarlac City</td>
+                                <td>+6391536528946</td>
+                                <td>0</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">8</th>
+                                <td>Establishment 6</td>
+                                <td>March 16, 2022</td>
+                                <td>12:17:03</td>
+                                <td>13:12:18</td>
+                                <td>Miya</td>
+                                <td>Armando</td>
+                                <td>Tarlac City</td>
+                                <td>+639151475489</td>
+                                <td>0</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                        
+
+@endsection
+
+    @section('scripts')
+    
+    <script>
+@endsection
