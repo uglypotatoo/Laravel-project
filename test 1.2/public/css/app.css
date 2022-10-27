@@ -1,0 +1,155 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap%27');
+
+body{
+  font-family: 'poppins', sans-serif;
+  background-color: #f5f5ff;
+}
+
+
+/* navbar */
+#mainNav{
+  background: white;
+  color: #2596be;
+  font-size: 20px;
+  z-index: 1;
+}
+.navbar a{
+  color: #2596be !important;
+  word-spacing: 5px;
+}
+
+
+/* ----------------end of navbar------------------- */
+
+/*---------Intro page section-----------------------*/
+
+.intro{
+  
+  max-width: 100%;
+  height: 100vh;
+  text-align: center;
+  color: #2596be;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.btn{
+
+  font-size: 24px;
+  width: 100%;
+  border-radius: 50px;  
+}
+.intro h1{
+  font-size:40px;
+  letter-spacing: 10px;
+}
+.intro h3{
+  font-size: 25px;
+}
+
+/*---------------------End of intro page section*-------------------/
+
+/*Start of about*/
+.about{
+  width: 100%;
+  padding-bottom: 10rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.about .card{
+  background: #f3f3ff;
+  box-shadow: 4px 8px 0 ;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  transition: 0.3s;
+  color: #2596be;
+  font-family: 'poppins';
+  justify-content: center;
+}
+.about h2{
+  text-align: center;
+}
+.about ul{
+  list-style: none;
+  font-size: 20px;
+  
+}
+.about p{
+  font-size: 20px;
+  font-weight: 400;
+}
+
+
+
+/*-------------------------End of about----------------*/
+
+/*----------user-manual----------*/
+
+.manual{
+  width: 100%;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  font-family: 'poppins', sans-serif;
+  color: #2596be;
+}
+.manual .card-carousel, .card-establishment{
+  background: #f3f3ff;
+  box-shadow: 4px 8px 0 ;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  transition: 0.3s;
+  color: #2596be;
+  font-family: 'poppins';
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.manual h2, h3{
+  
+  text-align: center;
+}
+
+
+.carousel-establishment ol{
+  justify-content: center;
+  align-items: center;
+  display: inline;
+  height: 25rem;
+  
+}
+.carousel-user ol{
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
+  
+}
+
+.inside{
+width: 300px;
+}
+
+
+/*----------end-of-user-manual----------*/
+
+/*-------------------Terms and conditions-------------*/
+
+.privacy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+
+/*-------------------End of Terms and conditions-------------*/
+
+
+.privacy h2{
+  text-align: left;
+}
